@@ -7,6 +7,11 @@ FORMAT_WITH_FRACTION = '%Y-%m-%dT%H:%M:%S.%fZ'
 
 
 class utcdatetime(object):
+    @staticmethod
+    def from_string(string):
+        from .parse_datetime_string import parse_datetime_string
+        return parse_datetime_string(string)
+
     def __init__(self, year, month, day, hour=0, minute=0, second=0,
                  microsecond=0):
         self.__dt = datetime.datetime(year, month, day, hour, minute, second,
@@ -29,3 +34,18 @@ class utcdatetime(object):
 
         return 'utcdatetime({0})'.format(', '.join(
             ['{0}'.format(part) for part in parts]))
+
+    @property
+    def microsecond(self):
+        return self.__dt.microsecond
+
+    @microsecond.setter
+    def microsecond(self, value):
+        self.__dt = self.__dt.replace(microsecond=value)
+
+    def __eq__(self, other):
+        return self.__dt == other.__dt
+
+    def __isub__(self, delta):
+        self.__dt -= delta
+        return self
