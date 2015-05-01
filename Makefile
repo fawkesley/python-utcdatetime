@@ -1,7 +1,6 @@
 .PHONY:test
 test: clean
-	nosetests -sv
-	# coverage run --source=encryptit setup.py test
+	coverage run --source=utcdatetime setup.py test
 	./script/check-pep8.sh .
 	./script/check-todo.sh utcdatetime/
 
