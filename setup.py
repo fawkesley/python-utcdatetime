@@ -52,8 +52,9 @@ setup(
     author='Paul M Furley',
     author_email='paul@paulfurley.com',
     url='https://github.com/paulfurley/python-utcdatetime',
-    download_url=('https://github.com/paulfurley/python-utcdatetime/tarball/{0}'
-                  .format(VERSION)),
+    download_url=(
+        'https://github.com/paulfurley/python-utcdatetime/tarball/{0}'.format(
+            VERSION)),
     install_requires=get_install_requires(),
     test_suite='nose.collector',
     classifiers=[
