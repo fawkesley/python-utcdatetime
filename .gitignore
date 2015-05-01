@@ -1,3 +1,5 @@
-.pyc
+*.pyc
 .*.swp
 *__pycache__*
+
+utcdatetime.egg-info/

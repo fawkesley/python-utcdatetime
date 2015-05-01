@@ -27,5 +27,5 @@ class utcdatetime(object):
         if self.__dt.microsecond > 0:
             parts.append(self.__dt.microsecond)
 
-        return 'utcdatetime({})'.format(', '.join(
+        return 'utcdatetime({0})'.format(', '.join(
             ['{0}'.format(part) for part in parts]))
