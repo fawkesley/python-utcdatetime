@@ -51,13 +51,13 @@ def construct_utcdatetime(match):
         int(match.group(x))
         for x in ('year', 'month', 'day', 'hour', 'minute', 'second')]
 
-    utc_dt = utcdatetime(*required_args)
-
     try:
-        utc_dt.microsecond = convert_fractional_second(
-            float(match.group('fractional_second')))
+        required_args.append(
+            convert_fractional_second(float(match.group('fractional_second'))))
     except IndexError:
         pass
+
+    utc_dt = utcdatetime(*required_args)
 
     try:
         offset_sign = match.group('offset_sign')
