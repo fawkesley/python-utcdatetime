@@ -42,14 +42,6 @@ class utcdatetime(object):
         return 'utcdatetime({0})'.format(', '.join(
             ['{0}'.format(part) for part in parts]))
 
-    @property
-    def microsecond(self):
-        return self.__dt.microsecond
-
-    @microsecond.setter
-    def microsecond(self, value):
-        self.__dt = self.__dt.replace(microsecond=value)
-
     def __eq__(self, other):
         return self.__dt == other.__dt
 
