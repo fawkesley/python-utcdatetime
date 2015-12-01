@@ -1,0 +1,2 @@
+[report]
+omit = utcdatetime/tests/test_*
