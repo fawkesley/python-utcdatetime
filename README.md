@@ -98,8 +98,8 @@ Not a problem, as long as it's got a timezone:
 >>> import datetime
 >>> import utcdatetime
 
->>> my_datetime = datetime.datetime(2010, 6, 10, 18, 45,
-                                    tzinfo=pytz.timezone('Europe/London'))
+>>> europe = pytz.timezone('Europe/London')
+>>> my_datetime = europe.localize(datetime.datetime(2010, 6, 10, 18, 45))
 >>> utcdatetime.utcdatetime.from_datetime(my_datetime)
 utcdatetime.utcdatetime(2010, 6, 10, 17, 45)  # Note British Summer Time -> UTC
 ```
