@@ -12,6 +12,13 @@ class utcdatetime(object):
         from .parse_datetime_string import parse_datetime_string
         return parse_datetime_string(string)
 
+    @staticmethod
+    def from_datetime(dt):
+        dt_utc = dt.astimezone(UTC)
+
+        return utcdatetime(dt_utc.year, dt_utc.month, dt_utc.day, dt_utc.hour,
+                           dt_utc.minute, dt_utc.second, dt_utc.microsecond)
+
     def __init__(self, year, month, day, hour=0, minute=0, second=0,
                  microsecond=0):
         self.__dt = datetime.datetime(year, month, day, hour, minute, second,
