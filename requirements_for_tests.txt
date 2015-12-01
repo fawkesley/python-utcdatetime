@@ -4,3 +4,4 @@ pep8==1.5.7
 pyflakes==0.8.1
 coveralls==0.5
 strict-rfc3339==0.5
+pytz==2015.7
