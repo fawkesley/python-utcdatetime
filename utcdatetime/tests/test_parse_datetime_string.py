@@ -5,7 +5,7 @@ import strict_rfc3339
 
 
 from utcdatetime import utcdatetime
-from utcdatetime.parse_datetime_string import make_delta
+from utcdatetime.parse_datetime_string import make_delta, parse_datetime_string
 
 
 BASE_DATES = ['2010-01-23T18:30:21']
@@ -89,3 +89,15 @@ def test_make_delta():
 
 def _assert_make_delta_equals(sign, hour, minute, expected):
     assert_equal(expected, make_delta(sign, hour, minute).total_seconds())
+
+
+def test_parse_datetime_string_throws_sensible_error():
+    try:
+        parse_datetime_string('foo')
+    except ValueError as e:
+        assert_equal(
+            'Failed to parse `foo` Is it a valid RFC 3339 string? '
+            'See https://www.ietf.org/rfc/rfc3339.txt',
+            str(e))
+    else:
+        assert False, "Didn't raise ValueError"
