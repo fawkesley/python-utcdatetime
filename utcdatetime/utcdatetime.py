@@ -19,6 +19,13 @@ class utcdatetime(object):
         return cls(dt_utc.year, dt_utc.month, dt_utc.day, dt_utc.hour,
                    dt_utc.minute, dt_utc.second, dt_utc.microsecond)
 
+    @classmethod
+    def now(cls):
+        """
+        Return the current date and time in the UTC timezone.
+        """
+        return cls.from_datetime(datetime.datetime.now(UTC))
+
     def __init__(self, year, month, day, hour=0, minute=0, second=0,
                  microsecond=0):
         self.__dt = datetime.datetime(year, month, day, hour, minute, second,

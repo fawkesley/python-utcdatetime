@@ -5,3 +5,4 @@ pyflakes==0.8.1
 coveralls==0.5
 strict-rfc3339==0.5
 pytz==2015.7
+freezegun==0.3.5
