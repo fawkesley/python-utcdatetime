@@ -7,17 +7,17 @@ FORMAT_WITH_FRACTION = '%Y-%m-%dT%H:%M:%S.%fZ'
 
 
 class utcdatetime(object):
-    @staticmethod
-    def from_string(string):
+    @classmethod
+    def from_string(cls, string):
         from .parse_datetime_string import parse_datetime_string
         return parse_datetime_string(string)
 
-    @staticmethod
-    def from_datetime(dt):
+    @classmethod
+    def from_datetime(cls, dt):
         dt_utc = dt.astimezone(UTC)
 
-        return utcdatetime(dt_utc.year, dt_utc.month, dt_utc.day, dt_utc.hour,
-                           dt_utc.minute, dt_utc.second, dt_utc.microsecond)
+        return cls(dt_utc.year, dt_utc.month, dt_utc.day, dt_utc.hour,
+                   dt_utc.minute, dt_utc.second, dt_utc.microsecond)
 
     def __init__(self, year, month, day, hour=0, minute=0, second=0,
                  microsecond=0):
