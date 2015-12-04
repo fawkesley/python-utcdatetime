@@ -5,19 +5,10 @@
 [![Development Status](https://pypip.in/status/utcdatetime/badge.svg)](https://pypi.python.org/pypi/utcdatetime/)
 [![Supported Python implementations](https://pypip.in/implementation/utcdatetime/badge.svg)](https://pypi.python.org/pypi/utcdatetime/)
 
-I work all day with UTC datetimes in Python and I find some baffling things:
+# utcdatetime: datetime class that makes working in UTC easier
 
-- Why do I need to import `pytz` just to get a `UTC` timezone class?
-- Why does `datetime.utcnow()` return a *native* datetime with no UTC timezone?!
-- Why does `datetime.isoformat()` use the `+00:00` format rather than `Z` for
-  a UTC datetime?
-- Why do I have to keep writing `%Y-%m-%dT%H:%M:%SZ` every time I parse or
-  format a UTC datetime?
-- Why do I have to handle all these timezone syntaxes: `Z`, `±HH:MM`, `±HHMM`,
-  `±HH` ?!
-
-This (opinionated) library gives you a UTC datetime with a sensible formatter
-and a parser which handles sane ISO 8601 datetimes.
+If you work primarily with UTC datetimes you might find this `utcdatetime`
+makes your life a little bit easier.
 
 # Construct a UTC datetime
 
@@ -78,7 +69,7 @@ Suppose you use `datetime.datetime.strptime(my_string, '%Y-%m-%dT%H:%M:%S%z')`
 So you'll have to work out the format first, then run a different strptime
 accordingly.
 
-# Get now() and utcnow() that actually have a timezone
+# Get now() that actually has a timezone
 
 ```python
 >>> import utcdatetime
@@ -103,3 +94,20 @@ Not a problem, as long as it's got a timezone:
 >>> utcdatetime.utcdatetime.from_datetime(my_datetime)
 utcdatetime.utcdatetime(2010, 6, 10, 17, 45)  # Note British Summer Time -> UTC
 ```
+
+# Motivation
+
+I used to work all day with UTC datetimes in Python and I found some baffling things:
+
+- Why do I need to import `pytz` just to get a `UTC` timezone class?
+- Why does `datetime.utcnow()` return a *native* datetime with no UTC timezone?!
+- Why does `datetime.isoformat()` use the `+00:00` format rather than `Z` for
+  a UTC datetime?
+- Why do I have to keep writing `%Y-%m-%dT%H:%M:%SZ` every time I parse or
+  format a UTC datetime?
+- Why do I have to handle all these timezone syntaxes: `Z`, `±HH:MM`, `±HHMM`,
+  `±HH` ?!
+
+This (opinionated) library gives you a UTC datetime with a sensible formatter
+and a parser which handles sane ISO 8601 datetimes.
+
