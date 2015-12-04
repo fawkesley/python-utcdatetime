@@ -1,4 +1,4 @@
 from .utc_timezone import UTCTimezone
 from .utcdatetime import utcdatetime, UTC
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
