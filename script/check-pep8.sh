@@ -3,8 +3,11 @@
 THIS_SCRIPT=$0
 THIS_DIR=$(dirname ${THIS_SCRIPT})
 
-DIR_TO_CHECK=$1
+DIR_TO_CHECK=$1/utcdatetime
 
+function check_that_directory_exists {
+  test -d "${DIR_TO_CHECK}"
+}
 
 function run_most_pep8_checks_on_everything {
     # F401: imported but unused
@@ -30,5 +33,6 @@ function run_particular_pep8_checks_excluding_init_files {
     ${DIR_TO_CHECK}
 }
 
+check_that_directory_exists
 run_most_pep8_checks_on_everything
 run_particular_pep8_checks_excluding_init_files
