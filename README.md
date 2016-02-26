@@ -95,6 +95,17 @@ Not a problem, as long as it's got a timezone:
 utcdatetime.utcdatetime(2010, 6, 10, 17, 45)  # Note British Summer Time -> UTC
 ```
 
+# Convert a utcdatetime into a Python datetime
+
+```python
+>>> import utcdatetime
+>>> import pytz
+
+>>> my_datetime = utcdatetime.utcdatetime(2010, 6, 10, 17, 45)  # Note British summer time
+>>> my_datetime.astimezone(pytz.timezone('Europe/London'))
+datetime.datetime(2010, 6, 10, 18, 45, tzinfo=<DstTzInfo 'Europe/London' GMT0:00:00 STD>)
+```
+
 # Motivation
 
 I used to work all day with UTC datetimes in Python and I found some baffling things:
