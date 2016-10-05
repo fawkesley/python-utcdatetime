@@ -64,3 +64,6 @@ class utcdatetime(object):
 
     def __sub__(self, delta):
         return self.from_datetime(self.__dt - delta)
+
+    def __cmp__(self, other):
+        return cmp(self.astimezone(UTC), other.astimezone(UTC))
