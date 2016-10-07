@@ -1,4 +1,5 @@
 import datetime
+from functools import total_ordering
 
 from .utc_timezone import UTC
 
@@ -6,6 +7,7 @@ FORMAT_NO_FRACTION = '%Y-%m-%dT%H:%M:%SZ'
 FORMAT_WITH_FRACTION = '%Y-%m-%dT%H:%M:%S.%fZ'
 
 
+@total_ordering
 class utcdatetime(object):
     @classmethod
     def from_string(cls, string):
@@ -58,6 +60,9 @@ class utcdatetime(object):
 
     def __eq__(self, other):
         return self.__dt == other.__dt
+
+    def __lt__(self, other):
+        return self.__dt < other.__dt
 
     def __add__(self, delta):
         return self.from_datetime(self.__dt + delta)
