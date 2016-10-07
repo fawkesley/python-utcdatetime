@@ -59,6 +59,11 @@ class utcdatetime(object):
     def __eq__(self, other):
         return self.__dt == other.__dt
 
-    def __isub__(self, delta):
-        self.__dt -= delta
-        return self
+    def __add__(self, delta):
+        return self.from_datetime(self.__dt + delta)
+
+    def __sub__(self, delta):
+        return self.from_datetime(self.__dt - delta)
+
+    def __cmp__(self, other):
+        return cmp(self.astimezone(UTC), other.astimezone(UTC))
