@@ -1,6 +1,6 @@
 from nose.tools import (
     assert_equal, assert_not_equal, assert_true, assert_false,
-    assert_is_instance
+    assert_is_instance, assert_raises
 )
 
 from datetime import timedelta
@@ -102,3 +102,7 @@ def test_earlier_minutes_later_returns_negative_timedelta():
     delta = earlier - later
     assert_is_instance(delta, timedelta)
     assert_equal(timedelta(hours=-1), delta)
+
+
+def test_subtracting_inappropriate_type_raises_type_error():
+    assert_raises(TypeError, lambda: utcdatetime(2016, 10, 7, 15, 0) - "foo")

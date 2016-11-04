@@ -74,5 +74,5 @@ class utcdatetime(object):
         if isinstance(other, utcdatetime):
             return self.__dt - other.__dt
 
-        raise NotImplementedError("Can't do utcdatetime - type {}".format(
+        raise TypeError("Can't do utcdatetime - type {}".format(
             type(other)))
