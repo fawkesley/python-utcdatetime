@@ -67,5 +67,12 @@ class utcdatetime(object):
     def __add__(self, delta):
         return self.from_datetime(self.__dt + delta)
 
-    def __sub__(self, delta):
-        return self.from_datetime(self.__dt - delta)
+    def __sub__(self, other):
+        if isinstance(other, datetime.timedelta):
+            return self.from_datetime(self.__dt - other)
+
+        if isinstance(other, utcdatetime):
+            return self.__dt - other.__dt
+
+        raise NotImplementedError("Can't do utcdatetime - type {}".format(
+            type(other)))

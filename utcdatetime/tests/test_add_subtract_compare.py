@@ -1,5 +1,6 @@
 from nose.tools import (
-    assert_equal, assert_not_equal, assert_true, assert_false
+    assert_equal, assert_not_equal, assert_true, assert_false,
+    assert_is_instance
 )
 
 from datetime import timedelta
@@ -83,3 +84,21 @@ def test_utcdatetime_less_than_returns_false_when_lhs_after_rhs():
     later = utcdatetime(2016, 10, 7, 16, 0)
 
     assert_false(later < earlier)
+
+
+def test_later_minus_earlier_returns_positive_timedelta():
+    earlier = utcdatetime(2016, 10, 7, 15, 0)
+    later = utcdatetime(2016, 10, 7, 16, 0)
+
+    delta = later - earlier
+    assert_is_instance(delta, timedelta)
+    assert_equal(timedelta(hours=1), delta)
+
+
+def test_earlier_minutes_later_returns_negative_timedelta():
+    earlier = utcdatetime(2016, 10, 7, 15, 0)
+    later = utcdatetime(2016, 10, 7, 16, 0)
+
+    delta = earlier - later
+    assert_is_instance(delta, timedelta)
+    assert_equal(timedelta(hours=-1), delta)
