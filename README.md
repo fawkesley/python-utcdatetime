@@ -1,9 +1,9 @@
 [![Build Status](https://travis-ci.org/paulfurley/python-utcdatetime.svg?branch=master)](https://travis-ci.org/paulfurley/python-utcdatetime)
 [![Coverage Status](https://coveralls.io/repos/paulfurley/python-utcdatetime/badge.svg)](https://coveralls.io/r/paulfurley/python-utcdatetime)
-[![Latest Version](https://pypip.in/version/utcdatetime/badge.svg)](https://pypi.python.org/pypi/utcdatetime/)
-[![Supported Python versions](https://pypip.in/py_versions/utcdatetime/badge.svg)](https://pypi.python.org/pypi/utcdatetime/)
-[![Development Status](https://pypip.in/status/utcdatetime/badge.svg)](https://pypi.python.org/pypi/utcdatetime/)
-[![Supported Python implementations](https://pypip.in/implementation/utcdatetime/badge.svg)](https://pypi.python.org/pypi/utcdatetime/)
+[![Latest Version](https://img.shields.io/pypi/v/utcdatetime.svg)](https://pypi.python.org/pypi/utcdatetime/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/utcdatetime.svg)](https://pypi.python.org/pypi/utcdatetime/)
+[![Development Status](https://img.shields.io/pypi/status/utcdatetime.svg)](https://pypi.python.org/pypi/utcdatetime/)
+[![Supported Python implementations](https://img.shields.io/pypi/implementation/utcdatetime.svg)](https://pypi.python.org/pypi/utcdatetime/)
 
 # utcdatetime: datetime class that makes working in UTC easier
 
