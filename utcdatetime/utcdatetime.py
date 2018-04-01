@@ -35,6 +35,12 @@ class utcdatetime(object):
         """
         return self.__dt.astimezone(tz)
 
+    def date(self):
+        """
+        https://docs.python.org/2/library/datedate.html#datedate.datedate.date
+        """
+        return self.__dt.date()
+
     def time(self):
         """
         https://docs.python.org/2/library/datetime.html#datetime.datetime.time
